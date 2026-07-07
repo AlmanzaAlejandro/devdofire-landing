@@ -497,67 +497,6 @@ h1, h2, h3, h4 {
 .step h3 { font-size: 1.05rem; text-transform: none; margin-bottom: 8px; }
 .step p { color: var(--text-secondary); font-size: 0.9rem; margin: 0; }
 
-/* ============ Promos ============ */
-.promos-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.promo-card {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: 28px 24px;
-  transition: transform .22s var(--ease);
-}
-.promo-card:hover { transform: translateY(-4px); }
-.promo-card--hot {
-  border-color: rgba(255,45,85,0.5);
-  background: linear-gradient(160deg, rgba(255,45,85,0.1), var(--bg-card) 55%);
-}
-.promo-tag {
-  display: inline-block;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--fire-1);
-  background: rgba(255,107,0,0.12);
-  padding: 5px 12px;
-  border-radius: 999px;
-  margin-bottom: 14px;
-}
-.promo-tag--hot { color: #fff; background: var(--gradient-fire); }
-.promo-card h3 { font-size: 1.2rem; text-transform: none; margin-bottom: 10px; }
-.promo-card p { color: var(--text-secondary); font-size: 0.92rem; margin: 0; }
-.promo-card strong { color: var(--cyan); }
-
-/* ============ Testimonials ============ */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.testimonial-card {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: 26px 24px;
-}
-.stars { color: var(--fire-1); letter-spacing: 3px; margin-bottom: 14px; }
-.testimonial-text {
-  color: var(--text-secondary);
-  font-size: 0.96rem;
-  font-style: italic;
-  margin: 0 0 18px;
-}
-.gamer-tag {
-  font-family: var(--font-display);
-  font-weight: 700;
-  color: var(--cyan);
-}
-
 /* ============ FAQ / Accordion ============ */
 .accordion { display: flex; flex-direction: column; gap: 12px; }
 .accordion-item {
@@ -754,7 +693,7 @@ h1, h2, h3, h4 {
 
 /* ============ Responsive ============ */
 @media (max-width: 980px) {
-  .plans-grid, .benefits-grid, .steps, .promos-grid, .testimonials-grid {
+  .plans-grid, .benefits-grid, .steps {
     grid-template-columns: repeat(2, 1fr);
   }
   .hero-inner { grid-template-columns: 1fr; }
@@ -780,7 +719,7 @@ h1, h2, h3, h4 {
     border-bottom: 1px solid var(--line);
   }
 
-  .plans-grid, .benefits-grid, .steps, .promos-grid, .testimonials-grid {
+  .plans-grid, .benefits-grid, .steps {
     grid-template-columns: 1fr;
   }
   .section { padding: 70px 0; }
