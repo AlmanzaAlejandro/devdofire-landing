@@ -435,11 +435,23 @@ h1, h2, h3, h4 {
   position: absolute; left: 0;
   color: var(--fire-2);
 }
-.plan-feature--gem {
-  color: var(--cyan) !important;
-  font-weight: 600;
+.plan-fair-use {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  margin: -10px 0 22px;
 }
-.plan-feature--gem::before { content: "" !important; }
+
+.plan-diamonds {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cyan);
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 26px;
+}
 
 /* ============ Benefits ============ */
 .benefits-grid {
