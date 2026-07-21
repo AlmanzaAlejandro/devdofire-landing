@@ -349,6 +349,11 @@ h1, h2, h3, h4 {
   font-family: var(--font-body);
   cursor: pointer;
   transition: transform .2s var(--ease), border-color .2s ease, box-shadow .2s ease;
+  /* Chrome/Edge give <button> grid items an intrinsic min-width that
+     ignores the 1fr track, so the card with more text (Free Fire)
+     grows wider than the locked ones unless this is reset. */
+  min-width: 0;
+  width: 100%;
 }
 .game-card:hover:not(.is-locked) {
   transform: translateY(-4px);
