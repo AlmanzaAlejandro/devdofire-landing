@@ -150,6 +150,37 @@
     });
   }
 
+  /* ---------- Game carousel selector ---------- */
+  var gameCards = document.querySelectorAll('.game-card');
+  gameCards.forEach(function (card) {
+    card.addEventListener('click', function () {
+      if (card.classList.contains('is-locked')) {
+        card.classList.remove('is-shake');
+        void card.offsetWidth;
+        card.classList.add('is-shake');
+        return;
+      }
+
+      gameCards.forEach(function (other) {
+        if (other.classList.contains('is-locked')) return;
+        other.classList.remove('is-active');
+        other.setAttribute('aria-pressed', 'false');
+        var check = other.querySelector('.game-card-check');
+        if (check) check.remove();
+      });
+
+      card.classList.add('is-active');
+      card.setAttribute('aria-pressed', 'true');
+      if (!card.querySelector('.game-card-check')) {
+        var checkEl = document.createElement('span');
+        checkEl.className = 'game-card-check';
+        checkEl.setAttribute('aria-hidden', 'true');
+        checkEl.textContent = '✓';
+        card.prepend(checkEl);
+      }
+    });
+  });
+
   /* ---------- Header shrink/style on scroll (subtle) ---------- */
   var header = document.getElementById('header');
   if (header) {
