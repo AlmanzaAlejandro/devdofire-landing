@@ -61,95 +61,6 @@
     });
   });
 
-  /* ---------- Contact form validation ---------- */
-  var form = document.getElementById('contactForm');
-  if (form) {
-    var successEl = document.getElementById('formSuccess');
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    var phoneRegex = /^\d{10}$/;
-
-    var fields = {
-      name: { el: document.getElementById('name'), errorEl: document.getElementById('nameError') },
-      email: { el: document.getElementById('email'), errorEl: document.getElementById('emailError') },
-      phone: { el: document.getElementById('phone'), errorEl: document.getElementById('phoneError') },
-      plan: { el: document.getElementById('plan'), errorEl: document.getElementById('planError') }
-    };
-
-    function setError(field, message) {
-      field.el.classList.add('is-invalid');
-      field.errorEl.textContent = message;
-    }
-
-    function clearError(field) {
-      field.el.classList.remove('is-invalid');
-      field.errorEl.textContent = '';
-    }
-
-    function validate() {
-      var valid = true;
-
-      if (!fields.name.el.value.trim()) {
-        setError(fields.name, 'Ingresa tu nombre o gamer tag.');
-        valid = false;
-      } else {
-        clearError(fields.name);
-      }
-
-      if (!fields.email.el.value.trim()) {
-        setError(fields.email, 'Ingresa tu correo.');
-        valid = false;
-      } else if (!emailRegex.test(fields.email.el.value.trim())) {
-        setError(fields.email, 'Formato de correo inválido.');
-        valid = false;
-      } else {
-        clearError(fields.email);
-      }
-
-      var phoneVal = fields.phone.el.value.trim().replace(/\D/g, '');
-      if (!phoneVal) {
-        setError(fields.phone, 'Ingresa tu teléfono.');
-        valid = false;
-      } else if (!phoneRegex.test(phoneVal)) {
-        setError(fields.phone, 'Debe tener 10 dígitos.');
-        valid = false;
-      } else {
-        clearError(fields.phone);
-      }
-
-      if (!fields.plan.el.value) {
-        setError(fields.plan, 'Selecciona un plan.');
-        valid = false;
-      } else {
-        clearError(fields.plan);
-      }
-
-      return valid;
-    }
-
-    Object.keys(fields).forEach(function (key) {
-      fields[key].el.addEventListener('input', function () {
-        clearError(fields[key]);
-      });
-      fields[key].el.addEventListener('change', function () {
-        clearError(fields[key]);
-      });
-    });
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      successEl.textContent = '';
-
-      if (validate()) {
-        successEl.textContent = '¡Squad recibido! Te contactaremos muy pronto. 🔥';
-        form.reset();
-      } else {
-        successEl.textContent = '';
-        var firstInvalid = form.querySelector('.is-invalid');
-        if (firstInvalid) firstInvalid.focus();
-      }
-    });
-  }
-
   /* ---------- Game carousel selector ---------- */
   var gameCards = document.querySelectorAll('.game-card');
   gameCards.forEach(function (card) {
@@ -178,6 +89,9 @@
         checkEl.textContent = '✓';
         card.prepend(checkEl);
       }
+
+      var plansSection = document.getElementById('planes');
+      if (plansSection) plansSection.scrollIntoView({ behavior: 'smooth' });
     });
   });
 
