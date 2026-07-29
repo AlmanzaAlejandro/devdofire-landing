@@ -90,8 +90,7 @@
         card.prepend(checkEl);
       }
 
-      var plansSection = document.getElementById('planes');
-      if (plansSection) plansSection.scrollIntoView({ behavior: 'smooth' });
+      if (document.getElementById('planes')) window.location.hash = 'planes';
     });
   });
 
