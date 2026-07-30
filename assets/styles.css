@@ -767,11 +767,14 @@ h1, h2, h3, h4 {
     grid-auto-columns: 210px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    /* Left/top padding keeps the .game-card-check badge (offset -12px/-16px
-       past the card's edge) from being clipped by this scroll container. */
-    padding: 16px 0 6px 12px;
+    padding-bottom: 6px;
   }
   .game-card { scroll-snap-align: start; }
+  /* scroll-snap-align:start re-snaps scrollLeft on load, which cancels
+     out any container padding meant to keep the check badge (normally
+     offset past the card's edge) from being clipped. Keep it fully
+     inside the card here instead, so it can't be clipped regardless. */
+  .game-card-check { top: 10px; left: 10px; }
 }
 
 @media (max-width: 760px) {
