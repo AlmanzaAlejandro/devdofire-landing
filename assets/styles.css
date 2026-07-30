@@ -756,7 +756,7 @@ h1, h2, h3, h4 {
     grid-template-columns: repeat(2, 1fr);
   }
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-visual { order: -1; margin: 0 auto 24px; }
+  .hero-visual { margin: 24px auto 0; }
   .footer-inner { grid-template-columns: 1fr; }
 }
 
