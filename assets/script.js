@@ -90,7 +90,17 @@
         card.prepend(checkEl);
       }
 
-      if (document.getElementById('planes')) window.location.hash = 'planes';
+      var plansSection = document.getElementById('planes');
+      if (plansSection) {
+        // Setting the hash to its current value is a no-op (no navigation,
+        // no scroll), so repeat clicks after the first need an explicit
+        // scroll instead of relying on the hash change.
+        if (window.location.hash === '#planes') {
+          plansSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          window.location.hash = 'planes';
+        }
+      }
     });
   });
 
