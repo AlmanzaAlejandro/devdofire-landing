@@ -264,6 +264,10 @@ h1, h2, h3, h4 {
   gap: 50px;
   align-items: center;
 }
+/* Grid items default to a content-based min-width, so the game carousel's
+   fixed-width scroll columns (see .game-carousel below) would otherwise
+   force this row wider than the viewport on narrow screens. */
+.hero-text, .hero-visual { min-width: 0; }
 
 .tag-pill {
   display: inline-block;
@@ -331,7 +335,7 @@ h1, h2, h3, h4 {
   letter-spacing: 0.04em;
 }
 
-.hero-visual { display: flex; justify-content: center; }
+.hero-visual { display: flex; justify-content: center; width: 100%; }
 
 /* ============ Game carousel ============ */
 .game-carousel {
