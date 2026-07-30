@@ -796,5 +796,5 @@ h1, h2, h3, h4 {
   .hero { padding: 120px 0 60px; }
   .hero-cta-row { flex-direction: column; }
   .hero-cta-row .btn { width: 100%; }
-  .hero-stats { gap: 22px; }
+  .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 }
