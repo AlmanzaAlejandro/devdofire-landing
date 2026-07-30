@@ -3,9 +3,10 @@
 # Cache-Control: no-cache asks browsers/CDN to always revalidate with the
 # origin before reusing a cached copy, but Cloudflare (sitting in front of
 # CloudFront for glitchmobile.net) overrides this with its own ~4h browser
-# cache TTL. To guarantee visitors get the latest JS/CSS on every deploy
-# regardless of that, index.html is uploaded with a `?v=<commit>` cache-buster
-# on the asset URLs so each deploy points at an effectively new URL.
+# cache TTL. To guarantee visitors get the latest JS/CSS/logo on every
+# deploy regardless of that, index.html is uploaded with a `?v=<commit>`
+# cache-buster on those asset URLs so each deploy points at an effectively
+# new URL. Add a new `-e` clause below if another asset needs this.
 set -euo pipefail
 
 BUCKET="defdo-fire"
@@ -17,6 +18,7 @@ TMP_INDEX="$(mktemp)"
 trap 'rm -f "$TMP_INDEX"' EXIT
 sed -e "s#assets/styles.css#assets/styles.css?v=$VERSION#" \
     -e "s#assets/script.js#assets/script.js?v=$VERSION#" \
+    -e "s#assets/img/logo-glitch-mobile\.svg#assets/img/logo-glitch-mobile.svg?v=$VERSION#g" \
     index.html > "$TMP_INDEX"
 
 aws --profile "$PROFILE" s3 cp "$TMP_INDEX" "s3://$BUCKET/index.html" \
