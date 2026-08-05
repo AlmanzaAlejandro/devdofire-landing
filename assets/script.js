@@ -104,6 +104,18 @@
     });
   });
 
+  /* ---------- Plan card: click anywhere to go to checkout ---------- */
+  var planCards = document.querySelectorAll('.plan-card');
+  planCards.forEach(function (card) {
+    var checkoutLink = card.querySelector('a.btn');
+    if (!checkoutLink) return;
+
+    card.addEventListener('click', function (event) {
+      if (event.target.closest('a')) return;
+      checkoutLink.click();
+    });
+  });
+
   /* ---------- Header shrink/style on scroll (subtle) ---------- */
   var header = document.getElementById('header');
   if (header) {

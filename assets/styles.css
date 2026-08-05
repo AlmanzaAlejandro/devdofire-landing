@@ -486,6 +486,7 @@ h1, h2, h3, h4 {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   padding: 34px 28px;
+  cursor: pointer;
   transition: transform .25s var(--ease), border-color .25s ease, box-shadow .25s ease;
 }
 .plan-card:hover {
